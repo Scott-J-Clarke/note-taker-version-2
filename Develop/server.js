@@ -1,9 +1,6 @@
 // Import Express.js:
 const express = require('express');
 
-// Import npm package 'path' to resolve path of files located on the server:
-const path = require('path');
-
 // Initialize an instance of Express.js:
 const app = express();
 
