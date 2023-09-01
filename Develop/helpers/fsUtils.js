@@ -1,4 +1,4 @@
-// Referenced Activity 11-22 and file 'fsUtils.js' when writing this file:
+// Referenced Activity 11-21 and file 'fsUtils.js' when writing this file:
 const fs = require('fs');
 const util = require('util');
 

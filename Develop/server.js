@@ -1,5 +1,8 @@
-// Import Express.js:
+// Does Express.js need to be imported to 'server.js'?
 const express = require('express');
+
+// Import 'index.js' which collects 'apiroutes.js' and 'htmlroutes.js':
+const api = require('./routes/index');
 
 // Initialize an instance of Express.js:
 const app = express();
@@ -15,6 +18,9 @@ app.use(express.json());
 
 // Middleware for urlencoded form data:
 app.use(express.urlencoded({ extended: true }));
+
+// Use middleware on GET requests for 'api/notes'?
+app.use('/api/notes', api);
 
 app.listen(PORT, () => 
     console.log(`App listening at http://localhost:${PORT}`)
