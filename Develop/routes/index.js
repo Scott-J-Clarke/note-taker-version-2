@@ -9,7 +9,7 @@ const notesRouter = require('./apiroutes');
 // Create an instance of express to apply the middleware and routing:
 const app = express();
 
-app.use('/api/notes', notesRouter);
+app.use('/notes', notesRouter);
 
 module.exports = app;
 
