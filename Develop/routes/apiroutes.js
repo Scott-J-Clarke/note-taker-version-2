@@ -24,6 +24,7 @@ notes.post('/', (req, res) => {
      };
      readAndAppend(newNote, './db/db.json');
 
+     // Struture of response inside of 'Insomnia' that tells if new note has been posted:
      const response = {
         status: 'success',
         body: newNote,
@@ -36,7 +37,18 @@ notes.post('/', (req, res) => {
     }
 });
 
+// DELETE route for removing an entry from 'api/notes':
+notes.delete('api/notes/:id', (req, res) => {
+    // Will this read all the notes in 'db.json'?
+    let db = JSON.parse(readFromFile('./db/db.json'));
+    // Remove a specific note using 'note_id':
+    let deleteNotes = db.filter(item => item.note_id !== req.params.note_id);
+    // Rewrite notes to 'db.json' without deleted note:
+    writeToFile('./db/db.json', JSON.stringify(deleteNotes));
+    // db should now be one note shorter:
+    res.json(deleteNotes);
+});
+
 module.exports = notes;
 
-// This is a simpler GET request that works:
-// notes.get('/', (req, res) => res.json(database));
+
