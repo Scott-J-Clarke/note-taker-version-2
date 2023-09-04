@@ -41,8 +41,8 @@ notes.post('/', (req, res) => {
 
 // DELETE route for removing a specific 'id' entry at 'api/notes/:id':
 notes.delete('/:id', (req, res) => {
-    // Use 'fs.readFileSync' and 'fs.writeFileSync' because they are easier to understand.
-    // They happen immeidately, and are not reliant on executing a 'promise.'
+    // 'fs.readFileSync' and 'fs.writeFileSync' are easier to understand.
+    // They happen immeidately. They are not reliant on executing a 'promise.'
     let db = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
     let deleteNotes = db.filter(item => item.id !== req.params.id);
     fs.writeFileSync('./db/db.json', JSON.stringify(deleteNotes));
