@@ -1,8 +1,10 @@
 const express = require('express');
 const notes = express.Router();
+// Import 'fs' for 'fs.readFileSync' used in writing the DELETE route:
+const fs = require('fs');
 
 // Helper functions for reading and writing to the JSON file:
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
+const { readFromFile, writeToFile, readAndAppend } = require('../helpers/fsUtils');
 
 // Will need to set up UUID here:
 const uuid = require('../helpers/uuid');
@@ -20,7 +22,7 @@ notes.post('/', (req, res) => {
     const newNote = { 
        title,
        text,
-       note_id: uuid(), 
+       id: uuid(), 
      };
      readAndAppend(newNote, './db/db.json');
 
@@ -37,18 +39,14 @@ notes.post('/', (req, res) => {
     }
 });
 
-// DELETE route for removing an entry from 'api/notes':
-notes.delete('api/notes/:id', (req, res) => {
-    // Will this read all the notes in 'db.json'?
-    let db = JSON.parse(readFromFile('./db/db.json'));
-    // Remove a specific note using 'note_id':
-    let deleteNotes = db.filter(item => item.note_id !== req.params.note_id);
-    // Rewrite notes to 'db.json' without deleted note:
-    writeToFile('./db/db.json', JSON.stringify(deleteNotes));
-    // db should now be one note shorter:
+// DELETE route for removing a specific 'id' entry at 'api/notes/:id':
+notes.delete('/:id', (req, res) => {
+    // Use 'fs.readFileSync' and 'fs.writeFileSync' because they are easier to understand.
+    // They happen immeidately, and are not reliant on executing a 'promise.'
+    let db = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
+    let deleteNotes = db.filter(item => item.id !== req.params.id);
+    fs.writeFileSync('./db/db.json', JSON.stringify(deleteNotes));
     res.json(deleteNotes);
 });
 
 module.exports = notes;
-
-

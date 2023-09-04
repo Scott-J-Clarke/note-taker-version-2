@@ -2,7 +2,7 @@
 const fs = require('fs');
 const util = require('util');
 
-// Promise version of fs.readFile:
+// Promise version of fs.readFile that returns a readFile value as a promise:
 const readFromFile = util.promisify(fs.readFile);
 
 /** 
@@ -12,7 +12,7 @@ const readFromFile = util.promisify(fs.readFile);
  *  @returns {void} Nothing
 */
 const writeToFile = (destination, content) =>
-    // What does 'null' and '4' mean inside 'JSON.stringify'?
+    // Inside 'JSON.stringify' 'null' parameter represents an optional 'replacer.' '4' refers to optional white space.
     fs.writeFile(destination, JSON.stringify(content, null, 4), (err) => 
         err ? console.error(err) : console.info(`\nData written to ${destination}`)
     );
