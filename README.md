@@ -22,7 +22,7 @@ Through making "Note Taker" I:
 
 ## Installation
 
- [See "Note Taker" online](https://scott-j-clarke.github.io/working-day-calendar/). 
+ [See "Note Taker" online](https://gravy-note-taker-5ac9aa57cff2.herokuapp.com/). 
  
  // Update after deploying through Heroku.
 
