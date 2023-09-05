@@ -1,1 +1,17 @@
-[{"title":"Wednesday morning","text":"Meet with tutor at 9 am","id":"542b"}]
+[
+    {
+        "title": "Wednesday morning",
+        "text": "Meet with tutor at 9 am",
+        "id": "542b"
+    },
+    {
+        "title": "Wednesday afternoon",
+        "text": "Rowing machine at gym",
+        "id": "492a"
+    },
+    {
+        "title": "Wednesday evening",
+        "text": "Put out the trash",
+        "id": "89d5"
+    }
+]
