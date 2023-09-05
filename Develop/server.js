@@ -1,26 +1,30 @@
-// Does Express.js need to be imported to 'server.js'?
 const express = require('express');
-
-// Import 'index.js' which collects 'apiroutes.js' and 'htmlroutes.js':
-const api = require('./routes/index');
-
-// Initialize an instance of Express.js:
 const app = express();
 
-// Specify port Express.js server will run on (for Heroku or localhost):
 const PORT = process.env.PORT || 3001;
 
-// Middleware for the static 'public' folder:
+// Middleware that lets user access 'public' folder through browser:
 app.use(express.static('public'));
-
-// Middleware for parsing JSON:
+// Middleware for JSON or urlencoded GET, POST, etc. requests:
 app.use(express.json());
-
-// Middleware for urlencoded form data:
 app.use(express.urlencoded({ extended: true }));
 
-// Send all requests that start with '/api' to the 'index.js' in the 'routes' folder:
+// Route to 'index.js', which is the route to 'apiroutes.js' and 'htmlroutes.js':
+const api = require('./routes/index');
+
+// GET, POST, and DELETE requests that start with '/api' are routed to 'index.js':
 app.use('/api', api);
+
+const path = require('path');
+
+//It seems that '/notes' has to come before '*' in VS Code or the wildcard route will always be accessed first :
+app.get('/notes', (req, res) => 
+    res.sendFile(path.join(__dirname, '/public/notes.html'))
+);
+
+app.get('*', (req, res) => 
+    res.sendFile(path.join(__dirname, '/public/index.html'))
+);
 
 app.listen(PORT, () => 
     console.log(`Note Taker application listening at http://localhost:${PORT}`)
