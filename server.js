@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Route to 'index.js', which is the route to 'apiroutes.js' and 'htmlroutes.js':
-const api = require('./routes/index');
+const api = require('./Develop/routes/index');
 
 // GET, POST, and DELETE requests that start with '/api' are routed to 'index.js':
 app.use('/api', api);
