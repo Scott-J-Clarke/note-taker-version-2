@@ -1,17 +1,1 @@
-[
-    {
-        "title": "Wednesday morning",
-        "text": "Meet with tutor at 9 am",
-        "id": "542b"
-    },
-    {
-        "title": "Wednesday afternoon",
-        "text": "Rowing machine at gym",
-        "id": "492a"
-    },
-    {
-        "title": "Wednesday evening",
-        "text": "Put out the trash",
-        "id": "89d5"
-    }
-]
+[{"title":"Wednesday evening","text":"Put out the trash","id":"89d5"},{"title":"Friday afternoon","text":"Check parcels at locker","id":"169e"},{"title":"Saturday evening","text":"Have family dinner","id":"b31f"}]

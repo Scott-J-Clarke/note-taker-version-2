@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Route to 'index.js', which is the route to 'apiroutes.js' and 'htmlroutes.js':
-const api = require('./Develop/routes/index');
+const api = require('./routes/index');
 
 // GET, POST, and DELETE requests that start with '/api' are routed to 'index.js':
 app.use('/api', api);
@@ -19,11 +19,11 @@ const path = require('path');
 
 //It seems that '/notes' has to come before '*' in VS Code or the wildcard route will always be accessed first :
 app.get('/notes', (req, res) => 
-    res.sendFile(path.join(__dirname, '/Develop/public/notes.html'))
+    res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
 app.get('*', (req, res) => 
-    res.sendFile(path.join(__dirname, '/Develop/public/index.html'))
+    res.sendFile(path.join(__dirname, '/public/index.html'))
 );
 
 app.listen(PORT, () => 

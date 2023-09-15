@@ -48,6 +48,8 @@ MIT
 
 ## Screenshot
 
-!["Note Taker" image](/Assets/Note%20Taker%20screenshot.jpg)
+!["Note Taker" homepage](/Assets/note-taker-homepage.jpg)
+
+!["Note Taker" write note page](/Assets/note-taker-write-note-page.jpg)
 
 ---
