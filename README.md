@@ -22,10 +22,8 @@ Through making "Note Taker" I:
 
 ## Installation
 
- [See "Note Taker" online](https://gravy-note-taker-5ac9aa57cff2.herokuapp.com/). 
+ ["Note Taker" app online](https://gravy-note-taker-5ac9aa57cff2.herokuapp.com/). 
  
- // Update after deploying through Heroku.
-
 ---
 
 ## Usage
