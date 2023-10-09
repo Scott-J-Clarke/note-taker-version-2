@@ -22,7 +22,7 @@ Through making "Note Taker" I:
 
 ## Installation
 
- ["Note Taker" app online](https://gravy-note-taker-5ac9aa57cff2.herokuapp.com/). 
+ ["Note Taker" app online](https://note-taker-version-2-2379b1830cc5.herokuapp.com/). 
  
 ---
 
